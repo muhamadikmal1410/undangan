@@ -64,15 +64,15 @@
         }
         #undangan h1, h3 {
             font-family: 'Dancing script', cursive;
-            font-size: 25px;
+            font-size: 20px;
         }
         #undangan h2 {
             font-family: 'Poppins', sans-serif;
-            font-size: 20px;
+            font-size: 16px;
         }
         #undangan p {
             font-family: 'Poppins', sans-serif;
-            font-size: 20px;
+            font-size: 14px;
         }
         .galeri {
             display: flex;
@@ -281,15 +281,16 @@
                         </a>
                       </div>
                       </div>
+                      <div class="ucapan-box">
+                        <h3>Ucapan Selamat</h3>
+                        <form id="formUcapan" onsubmit="kirimUcapan(); return false;">
+                          <input type="text" id="namaUcapan" placeholder="Nama Anda" required>
+                          <textarea id="pesanUcapan" placeholder="Tulis ucapan Anda..." required></textarea>
+                          <button type="submit">Kirim Ucapan</button>
+                        </form>
+                        <div id="daftarUcapan">
+                        </div>
                 </div>
-                <div class="ucapan-box">
-                    <h3>Ucapan Selamat</h3>
-                    <form id="formUcapan" onsubmit="kirimUcapan(); return false;">
-                      <input type="text" id="namaUcapan" placeholder="Nama Anda" required>
-                      <textarea id="pesanUcapan" placeholder="Tulis ucapan Anda..." required></textarea>
-                      <button type="submit">Kirim Ucapan</button>
-                    </form>
-                    <div id="daftarUcapan"></div>
             </div>
         </div>
     </div>
