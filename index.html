@@ -289,14 +289,14 @@
                       </div>
                       <div class="ucapan-box">
                         <h3>Ucapan Selamat</h3>
-                        <form id="formUcapan" onsubmit="kirimUcapan(); return false;">
-                          <input type="text" id="namaUcapan" placeholder="Nama Anda" required>
+                        <form id="formUcapan">
+                          <input type="text" id="namaUcapan" placeholder="Nama Anda" required style="width: 100%; padding: 8px; margin-bottom: 10px:">
                           <br><br>
-                          <textarea id="pesanUcapan" placeholder="Tulis ucapan Anda..." required></textarea>
+                          <textarea id="pesanUcapan" placeholder="Tulis ucapan Anda..." required style="width: 100%; padding: 8px; height: 80px;"></textarea>
                           <br><br>
-                          <button type="submit">Kirim Ucapan</button>
+                          <button type="submit" style="margin-top: 10px;">Kirim Ucapan</button>
                         </form>
-                        <div id="daftarUcapan">
+                        <div id="daftarUcapan" style="margin-top: 20px;">
                         </div>
                 </div>
             </div>
@@ -327,4 +327,19 @@
         }
     </script>
 </body>
+<script>
+    document.getElementById("formUcapan").addEventListener("submit", function(e) {
+      e.preventDefault(); // Cegah reload halaman
+      const nama = this.nama.value.trim();
+      const ucapan = this.ucapan.value.trim();
+  
+      if (nama && ucapan) {
+        const daftar = document.getElementById("daftarUcapan");
+        const elemen = document.createElement("div");
+        elemen.innerHTML = <p><strong>${nama}:</strong> ${ucapan}</p>;
+        daftar.appendChild(elemen);
+        this.reset(); // Kosongkan form
+      }
+    });
+  </script>
 </html>
