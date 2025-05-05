@@ -22,11 +22,11 @@
         .slide-container {
             display: flex;
             width: 200vw;
-            transition: transform 1s ease-in-out;
+            transition: transform 2s ease-in-out;
         }
         .slide {
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
@@ -155,6 +155,20 @@
                 display: block !important;
             }
         }
+        @media (max-width: 480px) {
+    #intro h2 {
+        font-size: 32px;
+    }
+
+    #undangan h3, #undangan p, .text-saya {
+        font-size: 16px;
+    }
+
+    .galeri img {
+        width: 80%;
+        max-width: 200px;
+    }
+}
         #countdown-box {
             padding: 15px 25px;
             background-color: #fff;
