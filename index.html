@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Undangan Pernikahan</title>
     <style>
@@ -74,7 +75,7 @@
 
         
         #undangan p {
-            font-family: 'Poppoins', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 20px;
         }
 
@@ -82,7 +83,7 @@
             background-color: #fff0f5;
         }
 #undangan {
-    line-height: 0,3;
+    line-height: 1.6;
 }
 .galeri {
     display: flex;
@@ -147,6 +148,13 @@ a {
   text-decoration: none;
   font-weight: bold;
 }
+
+.text-saya {
+    font-size: 18px;
+    color: #333;
+    display: block;
+    margin-top: 20px;
+}
         h1 {
             color: #c71585;
         }
@@ -174,6 +182,12 @@ a {
   .view-container {
     flex-direction: column;
   }
+}
+
+@media (max-width: 768px) {
+    .text-saya {
+        display: block !important;
+    }
 }
 
         #countdown-box {
@@ -218,6 +232,7 @@ a {
                 <h3>Galeri Prewedding</h3>
 <div class="galeri">
     <img src="images/Pasangan.jpeg" alt="Foto 1">
+    <p class="text-saya">Kami sangat berharap Anda bisa hadir dan berbagi kebahagiaan bersama kami.</p>
 </div>
                 </div>
             </div>
