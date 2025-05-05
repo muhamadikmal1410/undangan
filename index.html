@@ -337,9 +337,10 @@
           if (nama && ucapan) {
             const daftar = document.getElementById("daftarUcapan");
             const elemen = document.createElement("p");
-            elemen.innerHTML = <p><strong>${nama}:</strong> ${ucapan}</p>;
+            elemen.innerHTML = `<strong>${nama}:</strong> ${ucapan}`;
             daftar.appendChild(elemen);
-            this.reset(); // Kosongkan form
+            
+            document.getElementById("formUcapan").reset(); // Kosongkan form
           }
         });
       </script>
