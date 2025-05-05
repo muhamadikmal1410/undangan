@@ -230,6 +230,10 @@
   margin-top: 20px;
   max-height: 200px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
 }
 
 #daftarUcapan p {
@@ -237,6 +241,45 @@
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 10px;
+}
+.ucapan-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.ucapan-nama {
+  font-weight: bold;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.ucapan-isi {
+  flex: 1;
+}
+@media (max-width: 480px) {
+  .ucapan-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ucapan-nama {
+    min-width: auto;
+    white-space: normal;
+  }
+
+  .ucapan-isi {
+    width: 100%;
+  }
+
+  .ucapan-item button {
+    align-self: flex-end;
+    margin-top: 8px;
+  }
 }
     </style>
 </head>
@@ -275,7 +318,7 @@
                 <div id="countdown-box">
                     <div id="countdown" style="font-size: 24px; font-weight: bold;"></div>
                     <div class="konfirmasi-box">
-                        <h3>Konfirmasi Kehadiran</h3>
+                        <p>Konfirmasi Kehadiran</p>
                         <a class="hadir" href="https://wa.me/6289661979015?text=Saya%20akan%20hadir%20di%20acara%20pernikahan%20Ikmal%20%26%20Winter" target="_blank">
                           Saya Akan Hadir
                         </a>
@@ -363,15 +406,16 @@
         </script>
       <script>
         function tampilkanUcapan(nama, ucapan, index) {
-          const daftar = document.getElementById("daftarUcapan");
-          const elemen = document.createElement("p");
-          elemen.innerHTML = `
-            <p><strong>${nama}:</strong> ${ucapan}</p>
-            <button onclick="hapusUcapan(${index})" style="background:red;color:white;border:none;padding:5px 10px;border-radius:5px;margin-bottom:10px;">Hapus</button>
-          `;
-          daftar.appendChild(elemen);
-        }
-    
+  const daftar = document.getElementById("daftarUcapan");
+  const elemen = document.createElement("div");
+  elemen.className = "ucapan-item";
+  elemen.innerHTML = `
+    <span class="ucapan-nama">${nama}:</span>
+    <span class="ucapan-isi">${ucapan}</span>
+    <button onclick="hapusUcapan(${index})">Hapus</button>
+  `;
+  daftar.appendChild(elemen);
+}
         function hapusUcapan(index) {
           let data = JSON.parse(localStorage.getItem("ucapanList")) || [];
           data.splice(index, 1);
@@ -431,7 +475,7 @@ function tampilkanUcapan() {
       const daftar = document.getElementById("daftarUcapan");
       daftar.innerHTML = "<h3>Ucapan yang Masuk:</h3>";
       data.reverse().forEach(u => {
-        daftar.innerHTML += `<strong>${u.nama}:</strong> ${u.ucapan}`;
+        daftar.innerHTML = `<strong>${u.nama}:</strong> ${u.ucapan}`;
       });
     });
 }
