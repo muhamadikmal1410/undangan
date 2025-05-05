@@ -22,12 +22,14 @@
         .slide-container {
             display: flex;
             width: 200vw;
-            transition: transform 2s ease-in-out;
+            height: 100vh
+            transition: transform 1s ease-in-out;
         }
         .slide {
             width: 100vw;
-            min-height: 100vh;
+            height: 100vh;
             flex-shrink: 0;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -47,6 +49,8 @@
             background-color: #fff0f5;
             line-height: 1.3;
             overflow-y: auto;
+            justify-content: flex-start;
+            padding-top: 40px;
             height: 100vh;
             -webkit-overflow-scrolling: touch;
         }
@@ -64,7 +68,7 @@
         }
         #undangan h1, h3 {
             font-family: 'Dancing script', cursive;
-            font-size: 20px;
+            font-size: 22px;
         }
         #undangan h2 {
             font-family: 'Poppins', sans-serif;
@@ -260,12 +264,14 @@
                     <div class="view kanan">
                         <h3>Galeri Prewedding</h3>
                         <div class="galeri">
-                            <img src="images/Pasangan.jpeg" alt="Foto 1">
+                            <img src="images/Winter1.jpeg" alt="Foto 1">
+                            <img src="images/Pasangan.jpeg" alt="Foto 2">
+                            <img src="images/Winter2.jpeg" alt="Foto 3">
                         </div>
                     </div>
                 </div>
                 <p class="text-saya">Kami sangat berharap Anda bisa hadir dan berbagi kebahagiaan bersama kami.</p>
-                <h1>Menuju Hari Bahagia:</h1>
+                <p>Menuju Hari Bahagia:</p>
                 <div id="countdown-box">
                     <div id="countdown" style="font-size: 24px; font-weight: bold;"></div>
                     <div class="konfirmasi-box">
@@ -285,7 +291,9 @@
                         <h3>Ucapan Selamat</h3>
                         <form id="formUcapan" onsubmit="kirimUcapan(); return false;">
                           <input type="text" id="namaUcapan" placeholder="Nama Anda" required>
+                          <br><br>
                           <textarea id="pesanUcapan" placeholder="Tulis ucapan Anda..." required></textarea>
+                          <br><br>
                           <button type="submit">Kirim Ucapan</button>
                         </form>
                         <div id="daftarUcapan">
