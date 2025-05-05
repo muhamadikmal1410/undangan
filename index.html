@@ -329,18 +329,34 @@
         }
     </script>
     <script>
-        document.getElementById("formUcapan").addEventListener("submit", function(e) {
-          e.preventDefault(); // Cegah reload halaman
+        // Tampilkan ucapan yang sudah tersimpan saat halaman dimuat
+        document.addEventListener("DOMContentLoaded", function () {
+          const daftar = document.getElementById("daftarUcapan");
+          const dataTersimpan = JSON.parse(localStorage.getItem("ucapanList")) || [];
+          dataTersimpan.forEach(({ nama, ucapan }) => {
+            const elemen = document.createElement("div");
+            elemen.innerHTML = `<strong>${nama}:</strong> ${ucapan}`;
+            daftar.appendChild(elemen);
+          });
+        });
+      
+        document.getElementById("formUcapan").addEventListener("submit", function (e) {
+          e.preventDefault();
           const nama = document.getElementById("namaUcapan").value.trim();
           const ucapan = document.getElementById("isiUcapan").value.trim();
       
           if (nama && ucapan) {
             const daftar = document.getElementById("daftarUcapan");
-            const elemen = document.createElement("p");
+            const elemen = document.createElement("div");
             elemen.innerHTML = `<strong>${nama}:</strong> ${ucapan}`;
             daftar.appendChild(elemen);
-            
-            document.getElementById("formUcapan").reset(); // Kosongkan form
+      
+            // Simpan ke localStorage
+            const dataTersimpan = JSON.parse(localStorage.getItem("ucapanList")) || [];
+            dataTersimpan.push({ nama, ucapan });
+            localStorage.setItem("ucapanList", JSON.stringify(dataTersimpan));
+      
+            this.reset();
           }
         });
       </script>
